@@ -7,13 +7,17 @@ export default function Home (){
         <View>
             <Text> Meus Filmes</Text>
             <Text> Olá Steh, boa noite!</Text>
+
+            <TouchableOpacity>
+                <Text>Adicionar</Text>
+                </TouchableOpacity>
         </View>
 
         );
         }
 // Criando os estilos
 const styles = StyleSheet.create({
-    container
+    container 
 
 
 })
