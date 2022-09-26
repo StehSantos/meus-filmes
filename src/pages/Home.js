@@ -1,6 +1,28 @@
-import react from "react";
-import{View, Text, TextInput, TouchableOpacity,StyleSheet} from 'react-native';
+import react, {useStaste, useEffect} from "react";
+import{View, Text, TextInput, TouchableOpacity,StyleSheet, FlatList} from 'react-native';
    
+    let [Filmes, setFilmes] = useStaste([
+        {
+            'id': 1,
+            'nome': 'Titanic'
+        },
+        {
+            'id': 2,
+            'nome': 'Wonder Woman'
+        },
+        {
+            'id':3,
+            'nome': 'Malévola'
+        },
+        {
+            'id':4,
+            'nome': 'Jogos Vorazes'
+        }
+    ]);
+    let [Nome, setNome] = useStaste([]);
+    let [novoFilme, setNovoFilme] = useStaste();
+    let [saudacap, setSaudacao] = useStaste();
+
 export default function Home (){
         return(
 
@@ -14,8 +36,16 @@ export default function Home (){
             <TouchableOpacity style={styles.button}>
                 <Text style={styles.buttonText}>Adicionar</Text>
                 </TouchableOpacity>
-
-           
+            <FlatList
+            data= {Filmes}
+            keyExtractor= {item=>item.id}
+            renderItem={({ item }) => (
+                <TouchableOpacity style={styles.buttonFilme}>
+                <Text styles={styles.textFilme}> {item.nome}</Text>
+                </TouchableOpacity>
+            )}
+            />
+          
         </View>
 
         );
